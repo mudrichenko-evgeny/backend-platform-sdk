@@ -1,0 +1,13 @@
+{
+  "UNKNOWN": "Произошла неизвестная ошибка.",
+  "THROWABLE": "Произошла внутренняя ошибка сервера.",
+  "DATABASE": "Произошла ошибка базы данных.",
+  "SERVICE_UNAVAILABLE": "Сервис временно недоступен.",
+  "TOO_MANY_REQUESTS": "Слишком много запросов. Попробуйте позже.",
+  "MISSING_REQUIRED_FIELD": "Отсутствует обязательное поле '{fieldName}'.",
+  "BLANK_STRING_FIELD": "Поле '{fieldName}' не может быть пустой строкой.",
+  "EMPTY_COLLECTION_FIELD": "Коллекция в поле '{fieldName}' не может быть пустой.",
+  "INVALID_FIELD_VALUE": "Поле '{fieldName}' содержит недопустимое значение.",
+  "BAD_REQUEST": "Некорректный запрос.",
+  "INVALID_JSON_BODY": "Неверный формат JSON в теле запроса."
+}

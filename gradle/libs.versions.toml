@@ -1,0 +1,149 @@
+[versions]
+# @keep
+jvmToolchain = "21"
+
+# plugins
+kotlin = "2.2.21"
+dependency-analysis = "3.3.0"
+gradleup-shadow = "9.3.0"
+
+# libraries
+kotlinx-serialization-json = "1.9.0"
+kotlinx-coroutines-core = "1.10.2"
+exposed = "0.61.0"
+ktor = "3.3.1"
+dagger = "2.57.2"
+logback = "1.5.19"
+logstash = "7.4"
+dotenv = "5.2.2"
+postgresql = "42.7.8"
+bcrypt = "0.4"
+hikari = "7.0.2"
+flyway = "11.19.0"
+lettuce = "7.2.1.RELEASE"
+jjwt = "0.13.0"
+password4j = "1.8.4"
+opentelemetry = "1.57.0"
+opentelemetry-semconv = "1.37.0"
+micrometer-registry-prometheus = "1.16.0"
+smiley4-ktor = "5.4.0"
+smiley4-schema = "2.5.0"
+apache-kafka = "4.1.1"
+aws-sdk = "2.41.1"
+
+# libraries test
+kotlin-test-junit5 = "2.2.21"
+junit-jupiter = "6.0.0"
+mockk = "1.14.6"
+h2database = "2.4.240"
+
+[libraries]
+# kotlin
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
+
+# exposed
+exposed-core = { group = "org.jetbrains.exposed", name = "exposed-core", version.ref = "exposed" }
+exposed-dao = { group = "org.jetbrains.exposed", name = "exposed-dao", version.ref = "exposed" }
+exposed-jdbc = { group = "org.jetbrains.exposed", name = "exposed-jdbc", version.ref = "exposed" }
+exposed-json = { group = "org.jetbrains.exposed", name = "exposed-json", version.ref = "exposed" }
+exposed-java-time = { group = "org.jetbrains.exposed", name = "exposed-java-time", version.ref = "exposed" }
+
+# ktor
+ktor-bom = { module = "io.ktor:ktor-bom", version.ref = "ktor" }
+ktor-server-core = { group = "io.ktor", name = "ktor-server-core-jvm", version.ref = "ktor" }
+ktor-server-netty = { group = "io.ktor", name = "ktor-server-netty-jvm", version.ref = "ktor" }
+ktor-server-auth = { group = "io.ktor", name = "ktor-server-auth", version.ref = "ktor" }
+ktor-server-auth-jwt = { group = "io.ktor", name = "ktor-server-auth-jwt", version.ref = "ktor" }
+ktor-server-content-negotiation = { group = "io.ktor", name = "ktor-server-content-negotiation-jvm", version.ref = "ktor" }
+ktor-server-status-pages = { group = "io.ktor", name = "ktor-server-status-pages", version.ref = "ktor" }
+ktor-serialization-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json-jvm", version.ref = "ktor" }
+ktor-server-cors = { group = "io.ktor", name = "ktor-server-cors", version.ref = "ktor" }
+ktor-server-default-headers-jvm = { group = "io.ktor", name = "ktor-server-default-headers-jvm", version.ref = "ktor" }
+ktor-server-rate-limit = { group = "io.ktor", name = "ktor-server-rate-limit", version.ref = "ktor" }
+ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor" }
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor" }
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-server-test-host = { group = "io.ktor", name = "ktor-server-test-host", version.ref = "ktor" }
+
+# swagger
+smiley4-ktor-openapi = { group = "io.github.smiley4", name = "ktor-openapi", version.ref = "smiley4-ktor" }
+smiley4-ktor-swagger-ui = { group = "io.github.smiley4", name = "ktor-swagger-ui", version.ref = "smiley4-ktor" }
+smiley4-schema-kenerator-core = { group = "io.github.smiley4", name = "schema-kenerator-core", version.ref = "smiley4-schema" }
+smiley4-schema-kenerator-serialization = { group = "io.github.smiley4", name = "schema-kenerator-serialization", version.ref = "smiley4-schema" }
+smiley4-schema-kenerator-swagger = { group = "io.github.smiley4", name = "schema-kenerator-swagger", version.ref = "smiley4-schema" }
+
+# dagger
+dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
+dagger-compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
+
+# logback
+logback = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
+
+# logstash
+logstash = { group = "net.logstash.logback", name = "logstash-logback-encoder", version.ref = "logstash" }
+
+# dotenv
+dotenv = { group = "io.github.cdimascio", name = "java-dotenv", version.ref = "dotenv" }
+
+# postgresql
+postgresql = { group = "org.postgresql", name = "postgresql", version.ref = "postgresql" }
+
+# bcrypt
+bcrypt = { group = "org.mindrot", name = "jbcrypt", version.ref = "bcrypt" }
+
+# hikari
+hikari = { group = "com.zaxxer", name = "HikariCP", version.ref = "hikari" }
+
+# flyway
+flyway-core = { group = "org.flywaydb", name = "flyway-core", version.ref = "flyway" }
+flyway-postgresql = { group = "org.flywaydb", name = "flyway-database-postgresql", version.ref = "flyway" }
+
+# redis
+lettuce-core = { group = "io.lettuce", name = "lettuce-core", version.ref = "lettuce" }
+
+# jjwt
+jwt-api = { group = "io.jsonwebtoken", name = "jjwt-api", version.ref = "jjwt" }
+jwt-impl = { group = "io.jsonwebtoken", name = "jjwt-impl", version.ref = "jjwt" }
+jwt-jackson = { group = "io.jsonwebtoken", name = "jjwt-jackson", version.ref = "jjwt" }
+
+# password4j
+password4j = { group = "com.password4j", name = "password4j", version.ref = "password4j" }
+
+# opentelemetry
+opentelemetry-bom = { group = "io.opentelemetry", name = "opentelemetry-bom", version.ref = "opentelemetry" }
+opentelemetry-api = { group = "io.opentelemetry", name = "opentelemetry-api", version.ref = "opentelemetry" }
+opentelemetry-sdk = { group = "io.opentelemetry", name = "opentelemetry-sdk", version.ref = "opentelemetry" }
+opentelemetry-exporter-otlp = { group = "io.opentelemetry", name = "opentelemetry-exporter-otlp", version.ref = "opentelemetry" }
+opentelemetry-sdk-metrics = { group = "io.opentelemetry", name = "opentelemetry-sdk-metrics", version.ref = "opentelemetry" }
+opentelemetry-sdk-extension-autoconfigure = { group = "io.opentelemetry", name = "opentelemetry-sdk-extension-autoconfigure", version.ref = "opentelemetry" }
+opentelemetry-extension-kotlin = { group = "io.opentelemetry", name = "opentelemetry-extension-kotlin", version.ref = "opentelemetry" }
+opentelemetry-semconv = { group = "io.opentelemetry.semconv", name = "opentelemetry-semconv", version.ref = "opentelemetry-semconv" }
+
+# micrometer
+ktor-server-metrics-micrometer = { group = "io.ktor", name = "ktor-server-metrics-micrometer", version.ref = "ktor" }
+micrometer-registry-prometheus = { group = "io.micrometer", name = "micrometer-registry-prometheus", version.ref = "micrometer-registry-prometheus" }
+
+# kafka
+apache-kafka = { group = "org.apache.kafka", name = "kafka-clients", version.ref = "apache-kafka" }
+
+# aws
+aws-s3 = { group = "software.amazon.awssdk", name = "s3", version.ref = "aws-sdk" }
+aws-apache-client = { group = "software.amazon.awssdk", name = "apache-client", version.ref = "aws-sdk" }
+
+# test
+kotlin-test-junit5 = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5", version.ref = "kotlin-test-junit5" }
+junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit-jupiter" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+h2database = { group = "com.h2database", name = "h2", version.ref = "h2database" }
+
+[plugins]
+maven-publish = { id = "maven-publish" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+dependency-analysis = { id = "com.autonomousapps.dependency-analysis", version.ref = "dependency-analysis" }
+java-library = { id = "java-library" }
+application = { id = "application" }
+gradleup-shadow = { id = "com.gradleup.shadow", version.ref = "gradleup-shadow" }

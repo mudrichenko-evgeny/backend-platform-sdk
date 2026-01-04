@@ -1,0 +1,132 @@
+package com.mudrichenkoevgeny.backend.feature.user.error.model
+
+import com.mudrichenkoevgeny.backend.core.common.error.model.AppError
+import com.mudrichenkoevgeny.backend.core.common.error.model.AppErrorSeverity
+import com.mudrichenkoevgeny.backend.core.common.error.model.ErrorId
+import com.mudrichenkoevgeny.backend.feature.user.error.constants.UserErrorArgs
+import com.mudrichenkoevgeny.backend.feature.user.error.constants.UserErrorCodes
+import com.mudrichenkoevgeny.backend.feature.user.model.UserId
+import io.ktor.http.HttpStatusCode
+import java.util.UUID
+
+sealed class UserError(
+    override val errorId: ErrorId,
+    override val code: String,
+    override val publicArgs: Map<String, Any>? = null,
+    override val secretArgs: Map<String, Any>? = null,
+    override val httpStatusCode: HttpStatusCode,
+    override val appErrorSeverity: AppErrorSeverity
+) : AppError {
+
+    class InvalidAccessToken() : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.INVALID_ACCESS_TOKEN,
+        httpStatusCode = HttpStatusCode.Unauthorized,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class AccessTokenExpired() : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.ACCESS_TOKEN_EXPIRED,
+        httpStatusCode = HttpStatusCode.Unauthorized,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class InvalidRefreshToken() : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.INVALID_REFRESH_TOKEN,
+        httpStatusCode = HttpStatusCode.Unauthorized,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class UserBlocked(
+        val userId: UserId? = null
+    ) : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.USER_BLOCKED,
+        secretArgs = buildMap {
+            if (userId != null) {
+                put(UserErrorArgs.USER_ID, userId.value)
+            }
+        }.takeIf { it.isNotEmpty() },
+        httpStatusCode = HttpStatusCode.Forbidden,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class UserReadOnly(
+        val userId: UserId? = null
+    ) : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.USER_READ_ONLY,
+        secretArgs = buildMap {
+            if (userId != null) {
+                put(UserErrorArgs.USER_ID, userId.value)
+            }
+        }.takeIf { it.isNotEmpty() },
+        httpStatusCode = HttpStatusCode.Forbidden,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class UserForbidden(
+        val userId: UserId? = null
+    ) : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.USER_FORBIDDEN,
+        secretArgs = buildMap {
+            if (userId != null) {
+                put(UserErrorArgs.USER_ID, userId.value)
+            }
+        }.takeIf { it.isNotEmpty() },
+        httpStatusCode = HttpStatusCode.Forbidden,
+        appErrorSeverity = AppErrorSeverity.MEDIUM
+    )
+
+    class UserNotFound(
+        val userId: UserId? = null
+    ) : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.USER_NOT_FOUND,
+        secretArgs = buildMap {
+            if (userId != null) {
+                put(UserErrorArgs.USER_ID, userId.value)
+            }
+        }.takeIf { it.isNotEmpty() },
+        httpStatusCode = HttpStatusCode.NotFound,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class InvalidCredentials() : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.INVALID_CREDENTIALS,
+        httpStatusCode = HttpStatusCode.NotFound,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class PasswordTooWeak() : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.PASSWORD_TOO_WEAK,
+        httpStatusCode = HttpStatusCode.NotFound,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class WrongConfirmationCode() : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.WRONG_CONFIRMATION_CODE,
+        httpStatusCode = HttpStatusCode.NotFound,
+        appErrorSeverity = AppErrorSeverity.LOW
+    )
+
+    class ExternalIdMismatch() : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.EXTERNAL_ID_MISMATCH,
+        httpStatusCode = HttpStatusCode.NotFound,
+        appErrorSeverity = AppErrorSeverity.MEDIUM
+    )
+
+    class ExternalTokenInvalid() : UserError(
+        errorId = ErrorId(UUID.randomUUID()),
+        code = UserErrorCodes.EXTERNAL_TOKEN_INVALID,
+        httpStatusCode = HttpStatusCode.NotFound,
+        appErrorSeverity = AppErrorSeverity.MEDIUM
+    )
+}

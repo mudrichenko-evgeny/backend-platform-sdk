@@ -1,0 +1,13 @@
+{
+  "UNKNOWN": "An unknown error has occurred.",
+  "THROWABLE": "An internal server error has occurred.",
+  "DATABASE": "A database error has occurred.",
+  "SERVICE_UNAVAILABLE": "The service is currently unavailable.",
+  "TOO_MANY_REQUESTS": "Too many requests. Please try again later.",
+  "MISSING_REQUIRED_FIELD": "The required field '{fieldName}' is missing.",
+  "BLANK_STRING_FIELD": "The field '{fieldName}' cannot be blank.",
+  "EMPTY_COLLECTION_FIELD": "The collection field '{fieldName}' cannot be empty.",
+  "INVALID_FIELD_VALUE": "The field '{fieldName}' contains an invalid value.",
+  "BAD_REQUEST": "The request is invalid or cannot be processed.",
+  "INVALID_JSON_BODY": "Invalid JSON format in the request body."
+}

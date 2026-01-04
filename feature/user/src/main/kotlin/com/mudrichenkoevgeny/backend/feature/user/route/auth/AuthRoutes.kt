@@ -1,0 +1,29 @@
+package com.mudrichenkoevgeny.backend.feature.user.route.auth
+
+import com.mudrichenkoevgeny.backend.core.common.routing.BaseRouter
+import com.mudrichenkoevgeny.backend.feature.user.route.auth.login.LoginRouter
+import com.mudrichenkoevgeny.backend.feature.user.route.auth.refreshtoken.RefreshTokenRouter
+import com.mudrichenkoevgeny.backend.feature.user.route.auth.register.RegisterRouter
+import com.mudrichenkoevgeny.backend.feature.user.route.auth.sendconfirmation.SendConfirmationRouter
+import io.ktor.server.routing.Route
+import javax.inject.Inject
+import javax.inject.Singleton
+
+object AuthRoutes {
+    const val BASE_AUTH_ROUTE = "/auth"
+}
+
+@Singleton
+class AuthRouter @Inject constructor(
+    private val refreshTokenRouter: RefreshTokenRouter,
+    private val sendConfirmationRouter: SendConfirmationRouter,
+    private val loginRouter: LoginRouter,
+    private val registerRouter: RegisterRouter
+) : BaseRouter {
+    override fun register(route: Route) {
+        refreshTokenRouter.register(route)
+        sendConfirmationRouter.register(route)
+        loginRouter.register(route)
+        registerRouter.register(route)
+    }
+}
